@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-class RobotConfigurationSettingsEditorV2 extends SettingsEditor<RobotRunConfiguration> {
+public class RobotConfigurationSettingsEditorV2 extends SettingsEditor<RobotRunConfiguration> {
     private RobotConfigurationSettingsEditorV2From robotConfigurationSettingsEditorV2From;
 
     public RobotConfigurationSettingsEditorV2(Module module) {

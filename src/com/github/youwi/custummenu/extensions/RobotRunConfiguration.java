@@ -1,5 +1,6 @@
 package com.github.youwi.custummenu.extensions;
 
+import com.github.youwi.custummenu.extensions.form.RobotConfigurationSettingsEditor;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
@@ -23,7 +24,7 @@ import com.intellij.execution.configurations.RunProfileState;
 import com.intellij.openapi.module.Module;
 
 import java.util.Collection;
-
+import com.github.youwi.custummenu.extensions.form.RobotConfigurationSettingsEditorV2;
 /**
  * context_menu_launcher
  * Created by yu on 2018/4/28.

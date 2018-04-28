@@ -21,8 +21,15 @@ public class RunConfigProducer extends RunConfigurationProducer<RobotRunConfigur
         }
 
         VirtualFile file = location.getVirtualFile();
+        if(file!=null &&file.getName().endsWith(".robot"))
+            return true;
+        if(sourceElement!=null){
+            if(sourceElement.toString().startsWith("|")){
+                return true;
+            }
+        }
 
-        return file != null;
+        return false;
     }
 
     @Override
@@ -33,7 +40,12 @@ public class RunConfigProducer extends RunConfigurationProducer<RobotRunConfigur
         }
 
         VirtualFile file = location.getVirtualFile();
-        return  true;
+        if(file!=null &&file.getName().endsWith(".robot"))
+            return true;
+        return  false;
       //  return file != null && FileUtil.pathsEqual(file.getPath(), runConfig.getProgramName());
+    }
+    public boolean isRobotScript(){
+        return  true;
     }
 }

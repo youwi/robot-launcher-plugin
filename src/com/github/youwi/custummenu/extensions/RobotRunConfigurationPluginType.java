@@ -1,5 +1,6 @@
 package com.github.youwi.custummenu.extensions;
 
+import com.github.youwi.custummenu.PluginConst;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.ConfigurationTypeUtil;
@@ -15,12 +16,12 @@ import javax.swing.*;
 public class RobotRunConfigurationPluginType implements ConfigurationType {
     @Override
     public String getDisplayName() {
-        return "Demo";
+        return PluginConst.NAME;
     }
 
     @Override
     public String getConfigurationTypeDescription() {
-        return "Demo Run Configuration Type";
+        return PluginConst.DESCRIPTION;
     }
 
     @Override
