@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="context_menu_launcher:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/context_menu_launcher_jar</output-path>
+    <root id="archive" name="context_menu_launcher.jar">
+      <element id="module-output" name="context_menu_launcher" />
+    </root>
+  </artifact>
+</component>
