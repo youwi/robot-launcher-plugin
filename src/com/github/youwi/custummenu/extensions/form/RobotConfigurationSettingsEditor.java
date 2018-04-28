@@ -1,5 +1,7 @@
-package com.github.youwi.custummenu.extensions;
+package com.github.youwi.custummenu.extensions.form;
 
+import com.github.youwi.custummenu.extensions.RobotRunConfiguration;
+import com.intellij.openapi.module.Module;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.ui.ComponentWithBrowseButton;
@@ -15,7 +17,7 @@ import javax.swing.*;
  */
 
 
-public class RobotConfigrationSettingsEditor extends SettingsEditor<RobotRunConfiguration> {
+public class RobotConfigurationSettingsEditor extends SettingsEditor<RobotRunConfiguration> {
     private JPanel myPanel;
     private LabeledComponent<ComponentWithBrowseButton> myMainClass;
     private JRadioButton radioButton1;
@@ -42,6 +44,9 @@ public class RobotConfigrationSettingsEditor extends SettingsEditor<RobotRunConf
     @NotNull
     @Override
     protected JComponent createEditor() {
+
+        // this.myPanel.setModuleContext(module);
+
         return myPanel;
     }
 

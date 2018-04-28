@@ -22,7 +22,7 @@ public class RunRobotConfigurationFactory extends ConfigurationFactory {
     @Override
     public RunConfiguration createTemplateConfiguration(Project project) {
         return new RobotRunConfiguration(new RunConfigurationModule(project), this);
-      //  return new RobotRunConfiguration(project, this, "Demo");
+     //  return new RobotRunConfiguration(project, this, "Demo");
     }
 
     @Override
