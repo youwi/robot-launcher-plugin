@@ -15,7 +15,7 @@ import javax.swing.*;
 public class RobotRunConfigurationPluginType implements ConfigurationType {
     @Override
     public String getDisplayName() {
-        return PluginConst.NAME;
+        return PluginConst.RUN_TYPE_NAME;
     }
 
     @Override
@@ -25,8 +25,7 @@ public class RobotRunConfigurationPluginType implements ConfigurationType {
 
     @Override
     public Icon getIcon() {
-        //return IconLoader.getIcon("/icons/robot50.png");
-        //   return
+        //return IconLoader.getIcon("/icons/robot50.png"); //
         return AllIcons.Toolbar.Unknown;
     }
 

@@ -10,8 +10,14 @@ import javax.swing.*;
  */
 public class PluginConst {
 
-    public static final String NAME = "Run Robot";
+    public static final String RUN_TYPE_NAME = "Robot Framework";
+    public static final String NAME = RUN_TYPE_NAME;
+
     public static final String DESCRIPTION = "Run configuration for robot framework";
-    // give example
+    //  pybot -t testcase *.robot
+    //  python -m robot.run -t testcase *.robot
+    public static final String default_binary = "python";
+    public static final String default_options = " -m robot.run ";
+
     public static final Icon ICON = IconLoader.getIcon("/icons/perl.png");
 }

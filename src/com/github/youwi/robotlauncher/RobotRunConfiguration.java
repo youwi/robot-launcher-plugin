@@ -23,7 +23,9 @@ import com.intellij.execution.configurations.RunProfileState;
 import com.intellij.openapi.module.Module;
 
 import java.util.Collection;
+
 import com.github.youwi.robotlauncher.form.RobotConfigurationSettingsEditorV2;
+
 /**
  * context_menu_launcher
  * Created by yu on 2018/4/28.
@@ -35,24 +37,21 @@ public class RobotRunConfiguration extends AbstractRunConfiguration implements C
     private String interpreterName = "";
     private String programName = "";
     private String programParameters = "";
+    public String envPATH = "";
+    public String testCaseName="";
 
     //    protected RobotRunConfiguration(Project project, ConfigurationFactory factory, String name) {
-//        super(project, factory, name);
-//    }
+    //        super(project, factory, name);
+    //    }
     public RobotRunConfiguration(RunConfigurationModule configurationModule, ConfigurationFactory factory) {
         super("", configurationModule, factory);
-
+        envPATH = getProject().getBasePath() + "/venv/bin";
     }
 
     @Override
     public Collection<Module> getValidModules() {
         return null;
     }
-
-//    @NotNull
-//    public static RobotRunConfiguration getInstance() {
-//        return ConfigurationTypeUtil.findConfigurationType(RobotRunConfigurationPluginType.class);
-//    }
 
 
     @Override
@@ -64,20 +63,23 @@ public class RobotRunConfiguration extends AbstractRunConfiguration implements C
         readModule(element);
         EnvironmentVariablesComponent.readExternal(element, getEnvs());
 
-//        interpreterOptions = JDOMExternalizerUtil.readField(element, "INTERPRETER_OPTIONS");
-//        interpreterName = JDOMExternalizerUtil.readField(element, "INTERPRETER_NAME");
+        interpreterOptions = JDOMExternalizerUtil.readField(element, "INTERPRETER_OPTIONS");
+        interpreterName = JDOMExternalizerUtil.readField(element, "INTERPRETER_NAME");
         programName = JDOMExternalizerUtil.readField(element, "textField1");
-//        setProgramParameters(JDOMExternalizerUtil.readField(element, "PROGRAM_PARAMETERS"));
+        envPATH = JDOMExternalizerUtil.readField(element, "ENV_PATH");
+
+        setProgramParameters(JDOMExternalizerUtil.readField(element, "PROGRAM_PARAMETERS"));
     }
 
     @Override
     public void writeExternal(Element element) throws WriteExternalException {
         super.writeExternal(element);
 
-//        JDOMExternalizerUtil.writeField(element, "INTERPRETER_OPTIONS", interpreterOptions);
-//        JDOMExternalizerUtil.writeField(element, "INTERPRETER_NAME", interpreterName);
+        JDOMExternalizerUtil.writeField(element, "INTERPRETER_OPTIONS", interpreterOptions);
+        JDOMExternalizerUtil.writeField(element, "INTERPRETER_NAME", interpreterName);
         JDOMExternalizerUtil.writeField(element, "textField1", programName);
-        //   JDOMExternalizerUtil.writeField(element, "PROGRAM_PARAMETERS", getProgramParameters());
+        JDOMExternalizerUtil.writeField(element, "PROGRAM_PARAMETERS", getProgramParameters());
+        JDOMExternalizerUtil.writeField(element, "ENV_PATH", envPATH);
 
         DefaultJDOMExternalizer.writeExternal(this, element);
         writeModule(element);
@@ -100,9 +102,9 @@ public class RobotRunConfiguration extends AbstractRunConfiguration implements C
     @NotNull
     @Override
     public SettingsEditor<? extends RunConfiguration> getConfigurationEditor() {
-      //  return new RobotConfigurationSettingsEditor();
+        //  return new RobotConfigurationSettingsEditor();
+        //  return new RobotConfigurationSettingsEditorV2();
         return new RobotConfigurationSettingsEditorV2(getConfigurationModule().getModule());
-        // return new RobotConfigurationSettingsEditorV2();
     }
 
     @Override
@@ -114,9 +116,11 @@ public class RobotRunConfiguration extends AbstractRunConfiguration implements C
     @Override
     public RunProfileState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment executionEnvironment) throws ExecutionException {
         executor.getContextActionId();
-        return new RunState(this, executionEnvironment);
         // GeneralCommandLine s= new GeneralCommandLine();
-        //return null;
+        // return null;
+        //
+        return new RunState(this, executionEnvironment);
+
     }
 
 

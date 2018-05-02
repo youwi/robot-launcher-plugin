@@ -1,12 +1,11 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>com.github.youwi.robotlauncher</id>
+  <name>Run Robot framework file </name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="youwi@github.com" url="https://github.com/youwi/robot-launcher-plugin">github</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      Run Robot framework TestCase from context menu.
     ]]></description>
 
   <change-notes><![CDATA[
@@ -23,6 +22,10 @@
   <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
   -->
+  <!--<depends optional="true" config-file="my-java-features.xml">-->
+    <!--com.intellij.modules.java-->
+  <!--</depends>-->
+  <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
@@ -34,11 +37,11 @@
   <actions>
     <!-- Add your actions here -->
     <!---->
-    <!--<action id="com.github.youwi.custummenu.extensions.RunAsRobotFromMenuAction" class="com.github.youwi.custummenu.extensions.RunAsRobotFromMenuAction"-->
-            <!--text="Run As Robot" description="run robot test">-->
-      <!--<add-to-group group-id="EditorPopupMenu.Run" anchor="last"/>-->
-      <!--<keyboard-shortcut keymap="$default" first-keystroke="shift meta R" second-keystroke="shift meta P"/>-->
-    <!--</action>-->
+    <action id="com.github.youwi.youwi.robotlauncher.RunAsRobotFromMenuAction" class="com.github.youwi.robotlauncher.RunAsRobotFromMenuAction"
+            text="Run As Robot" description="run robot test">
+      <add-to-group group-id="EditorPopupMenu.Run" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift meta R" second-keystroke="shift meta P"/>
+    </action>
   </actions>
 
 </idea-plugin>

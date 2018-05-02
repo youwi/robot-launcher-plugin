@@ -1,14 +1,16 @@
 package com.github.youwi.robotlauncher;
 
-import com.intellij.execution.ProgramRunnerUtil;
-import com.intellij.execution.RunManager;
-import com.intellij.execution.RunnerAndConfigurationSettings;
+import com.intellij.execution.*;
+import com.intellij.execution.actions.ConfigurationContext;
+import com.intellij.execution.actions.ConfigurationFromContext;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.executors.DefaultRunExecutor;
+import com.intellij.execution.runners.ExecutionUtil;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 
@@ -21,6 +23,10 @@ import java.util.List;
  * Created by yu on 2018/4/27.
  */
 public class RunAsRobotFromMenuAction extends AnAction {
+
+    RunConfigProducer CONFIG_PRODUCER=new RunConfigProducer();
+
+
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = anActionEvent.getProject();
@@ -56,7 +62,36 @@ public class RunAsRobotFromMenuAction extends AnAction {
            // RunManager.getInstance(project).createConfiguration(PluginConst.NAME,);
         }
         // RunnerAndConfigurationSettings rac=configurationSettings.get
+        final DataContext dataContext = anActionEvent.getDataContext();
+        final ConfigurationContext context = ConfigurationContext.getFromContext(dataContext);
+        if (context.getLocation() == null) return;
+        final RunManagerEx runManager = (RunManagerEx) context.getRunManager();
+        RunnerAndConfigurationSettings setting = context.getConfiguration();
+        if (setting == null || setting.getConfiguration() == null || !(setting.getConfiguration() instanceof RobotRunConfiguration)) {
+            ConfigurationFromContext config = CONFIG_PRODUCER.createConfigurationFromContext(context);
+            if (config == null) return;
+            setting = config.getConfigurationSettings();
+            runManager.setTemporaryConfiguration(setting);
+        } else {
+            boolean hasExistingSetting = false;
+            for (RunnerAndConfigurationSettings existingSetting : runManager.getConfigurationSettingsList(new RobotRunConfigurationPluginType())) {
+                if (existingSetting.equals(setting)) {
+                    hasExistingSetting = true;
+                    break;
+                }
+            }
+            if (!hasExistingSetting) {
+                runManager.setTemporaryConfiguration(setting);
+            }
+        }
+        runManager.setSelectedConfiguration(setting);
 
+        ExecutorRegistry.getInstance().getRegisteredExecutors();
+        for (Executor executor : ExecutorRegistry.getInstance().getRegisteredExecutors()) {
+            if(executor instanceof DefaultRunExecutor){
+                ExecutionUtil.runConfiguration(setting, executor); //!!run all
+            }
+        }
 
         //project.get
 //        Navigatable navigatable = anActionEvent.getData(CommonDataKeys.NAVIGATABLE);
