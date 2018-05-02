@@ -5,4 +5,7 @@ not support pycharm ...now
 
 # preview
 
-<img src="/images/plugin-preview.png" alt="plugin-preview"/>
+<img src="/blob/master/images/plugin-preview.jpg?raw=true" alt="plugin-preview"/>
+
+## example
+ https://github.com/KarlGong/ptest
