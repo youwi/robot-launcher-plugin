@@ -5,12 +5,14 @@
   <vendor email="youwi@github.com" url="https://github.com/youwi/robot-launcher-plugin">github</vendor>
 
   <description><![CDATA[
-      Run Robot framework TestCase from context menu.
+      Run Robot framework TestCase from context menu.<br>
+      <img style="width:'300px'" src='https://github.com/youwi/robot-launcher-plugin/raw/master/images/plugin-preview.jpg?raw=true'>preview</img>
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      support pycharm now <br>
+      support idea now <br>
+
     ]]>
   </change-notes>
 
