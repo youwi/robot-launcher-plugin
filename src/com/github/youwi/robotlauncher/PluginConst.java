@@ -1,4 +1,4 @@
-package com.github.youwi.custummenu;
+package com.github.youwi.robotlauncher;
 
 import com.intellij.openapi.util.IconLoader;
 

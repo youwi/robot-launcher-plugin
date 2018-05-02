@@ -1,6 +1,5 @@
-package com.github.youwi.custummenu.extensions;
+package com.github.youwi.robotlauncher;
 
-import com.github.youwi.custummenu.extensions.form.RobotConfigurationSettingsEditor;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configuration.EnvironmentVariablesComponent;
@@ -24,7 +23,7 @@ import com.intellij.execution.configurations.RunProfileState;
 import com.intellij.openapi.module.Module;
 
 import java.util.Collection;
-import com.github.youwi.custummenu.extensions.form.RobotConfigurationSettingsEditorV2;
+import com.github.youwi.robotlauncher.form.RobotConfigurationSettingsEditorV2;
 /**
  * context_menu_launcher
  * Created by yu on 2018/4/28.
@@ -42,6 +41,7 @@ public class RobotRunConfiguration extends AbstractRunConfiguration implements C
 //    }
     public RobotRunConfiguration(RunConfigurationModule configurationModule, ConfigurationFactory factory) {
         super("", configurationModule, factory);
+
     }
 
     @Override

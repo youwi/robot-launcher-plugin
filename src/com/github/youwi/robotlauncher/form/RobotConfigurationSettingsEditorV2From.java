@@ -1,6 +1,6 @@
-package com.github.youwi.custummenu.extensions.form;
+package com.github.youwi.robotlauncher.form;
 
-import com.github.youwi.custummenu.extensions.RobotRunConfiguration;
+import com.github.youwi.robotlauncher.RobotRunConfiguration;
 import com.intellij.execution.ui.CommonProgramParametersPanel;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.ui.LabeledComponent;

@@ -1,6 +1,5 @@
-package com.github.youwi.custummenu.extensions;
+package com.github.youwi.robotlauncher;
 
-import com.github.youwi.custummenu.PluginConst;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.ConfigurationType;
 import com.intellij.execution.configurations.ConfigurationTypeUtil;

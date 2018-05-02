@@ -1,7 +1,6 @@
-package com.github.youwi.custummenu.extensions;
+package com.github.youwi.robotlauncher;
 
 
-import com.github.youwi.custummenu.PluginConst;
 import com.intellij.execution.configurations.RunProfile;
 import com.intellij.execution.runners.DefaultProgramRunner;
 import org.jetbrains.annotations.NotNull;

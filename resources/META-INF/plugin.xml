@@ -26,9 +26,9 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <configurationType implementation="com.github.youwi.custummenu.extensions.RobotRunConfigurationPluginType"/>
-    <programRunner implementation="com.github.youwi.custummenu.extensions.ProgramRunner"/>
-    <runConfigurationProducer implementation="com.github.youwi.custummenu.extensions.RunConfigProducer"/>
+    <configurationType implementation="com.github.youwi.robotlauncher.RobotRunConfigurationPluginType"/>
+    <programRunner implementation="com.github.youwi.robotlauncher.ProgramRunner"/>
+    <runConfigurationProducer implementation="com.github.youwi.robotlauncher.RunConfigProducer"/>
   </extensions>
 
   <actions>
