@@ -1,11 +1,18 @@
-# robot framework plugin
+# robot framework launcher plugin
+to: launcher  from context menu. run robot framework from context menu.
 
-not support pycharm ...now
+##  support 
+ - pycharm (virtual env work fine)
+ - idea 
+ 
 # build
+
+open by idea,then setup Plugin SDK,run and debug. 
 
 # preview
 
 <img src="../master/images/plugin-preview.jpg?raw=true" alt="plugin-preview"/>
 
-## example
- https://github.com/KarlGong/ptest
+## good plugin example
+ - https://github.com/KarlGong/ptest
+ - https://github.com/d0as8/PerlRun
