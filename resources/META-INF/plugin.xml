@@ -6,8 +6,11 @@
 
   <description><![CDATA[
       Run Robot framework TestCase from context menu.<br>
-      tested on idea (macOS)
-      tested on pycharm (macOS)
+      support virtual evn <br>
+      support markdown(sidexx) file.see <a href="https://github.com/youwi/side-md-launcher">side-md-launcher</a> <br>
+      tested on idea (macOS)<br>
+      tested on pycharm (macOS) <br>
+      do not support debug.<br>
       <img style="width:'300px'" src='https://github.com/youwi/robot-launcher-plugin/raw/master/images/plugin-preview.jpg?raw=true'>preview</img>
     ]]></description>
 

@@ -39,6 +39,9 @@ public class RunConfigProducer extends RunConfigurationProducer<RobotRunConfigur
 
         runConfig.setProgramName(pathFile);
         runConfig.setInterpreterOptions(PluginConst.default_options + " -t \"" + testCaseName + "\"");
+        if(file.getName().endsWith(".txt") || file.getName().endsWith(".md") || file.getName().endsWith(".side")){
+            runConfig.setInterpreterOptions(PluginConst.default_side_options + " -t \"" + testCaseName + "\"");
+        }
         runConfig.setName(testCaseName);
         runConfig.testCaseName = testCaseName;
 
