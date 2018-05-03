@@ -1,15 +1,18 @@
 <idea-plugin>
   <id>com.github.youwi.robotlauncher</id>
   <name>Run Robot framework file </name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="youwi@github.com" url="https://github.com/youwi/robot-launcher-plugin">github</vendor>
 
   <description><![CDATA[
       Run Robot framework TestCase from context menu.<br>
+      tested on idea (macOS)
+      tested on pycharm (macOS)
       <img style="width:'300px'" src='https://github.com/youwi/robot-launcher-plugin/raw/master/images/plugin-preview.jpg?raw=true'>preview</img>
     ]]></description>
 
   <change-notes><![CDATA[
+      fix NullPointerException(@RunClass)<br>
       support pycharm now <br>
       support idea now <br>
 
