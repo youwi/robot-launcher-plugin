@@ -39,7 +39,7 @@ public class RunConfigProducer extends RunConfigurationProducer<RobotRunConfigur
 
         runConfig.setProgramName(pathFile);
         runConfig.setInterpreterOptions(PluginConst.default_options + " -t \"" + testCaseName + "\"");
-        if(file.getName().endsWith(".txt") || file.getName().endsWith(".md") || file.getName().endsWith(".side")){
+        if (file.getName().endsWith(".txt") || file.getName().endsWith(".md") || file.getName().endsWith(".side")) {
             runConfig.setInterpreterOptions(PluginConst.default_side_options + " -t \"" + testCaseName + "\"");
         }
         runConfig.setName(testCaseName);
@@ -98,6 +98,9 @@ public class RunConfigProducer extends RunConfigurationProducer<RobotRunConfigur
         }
 
         VirtualFile file = location.getVirtualFile();
+        if (file == null) {
+            return false;
+        }
 
         String pathFile = file.getPath().replace(context.getProject().getBasePath() + "/", "");
 
