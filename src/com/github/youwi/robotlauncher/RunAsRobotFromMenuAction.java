@@ -50,7 +50,8 @@ public class RunAsRobotFromMenuAction extends AnAction {
             if(rcf instanceof RobotRunConfiguration){
                String name= ((RobotRunConfiguration) rcf).getProgramName();
                 if(file!=null && file.getName().equals(name)){
-                    ProgramRunnerUtil.executeConfiguration(rac, DefaultRunExecutor.getRunExecutorInstance());
+                    // not work on idea 2016
+                    // ProgramRunnerUtil.executeConfiguration(rac, DefaultRunExecutor.getRunExecutorInstance());
                     isFound=true;
                 }
                 //((RobotRunConfiguration) rcf).getInterpreterName();

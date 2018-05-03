@@ -40,15 +40,17 @@ public class RunState extends CommandLineState {
         cmd.setWorkDirectory(getEnvironment().getProject().getBasePath());
 
         // set PATH if use python virtual env
-        Map<String,String> envMap=cmd.getEffectiveEnvironment();
-        String newPath=config.envPATH+System.getProperties().getProperty("path.separator")+envMap.get("PATH");
-        envMap.put("PATH",newPath);
+        Map<String, String> envMap;
+        envMap = cmd.getEffectiveEnvironment(); // do not work on idea 2016
+        //envMap = cmd.getParentEnvironment(); //TODO fo fix idea 2017 and 2016
+        String newPath = config.envPATH + System.getProperties().getProperty("path.separator") + envMap.get("PATH");
+        envMap.put("PATH", newPath);
         envMap.remove("PYTHONHOME");// sep handle
         cmd.setPassParentEnvironment(false);
         cmd.withEnvironment(envMap);
 
-        File pythonBinary=new File(config.envPATH+"/"+config.getInterpreterName());
-        if(pythonBinary.exists()){
+        File pythonBinary = new File(config.envPATH + "/" + config.getInterpreterName());
+        if (pythonBinary.exists()) {
             cmd.setExePath(pythonBinary.getAbsolutePath());
         }
 

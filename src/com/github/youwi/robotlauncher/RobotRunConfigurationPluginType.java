@@ -26,6 +26,7 @@ public class RobotRunConfigurationPluginType implements ConfigurationType {
     @Override
     public Icon getIcon() {
         //return IconLoader.getIcon("/icons/robot50.png"); //
+        //isDumbAware();
         return AllIcons.Toolbar.Unknown;
     }
 
