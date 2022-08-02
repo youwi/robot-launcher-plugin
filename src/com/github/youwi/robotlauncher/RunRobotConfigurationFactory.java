@@ -22,11 +22,10 @@ public class RunRobotConfigurationFactory extends ConfigurationFactoryEx {
     @Override
     public RunConfiguration createTemplateConfiguration(Project project) {
         return new RobotRunConfiguration(new RunConfigurationModule(project), this);
-     //  return new RobotRunConfiguration(project, this, "Demo");
     }
 
     @Override
-    public String getName() {
+    public String getId() {
         return FACTORY_NAME;
     }
 }
